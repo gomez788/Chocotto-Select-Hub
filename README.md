@@ -1,6 +1,6 @@
 # Chocotto-Select-Hub
 
-チョイセレ（Choisere）の**公式ハブ/LP（静的サイト）**用リポジトリです。  
+チョイセレ（Chocotto-Select）の**公式ハブ/LP（静的サイト）**用リポジトリです。  
 GitHub Pagesで公開し、`main`へpushすると内容が更新されます。
 
 ## どこを編集すればいい？

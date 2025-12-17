@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="チョイセレ（Choisere）公式ハブ" />
-  <title>チョイセレ（Choisere）</title>
+  <meta name="description" content="チョイセレ（Chocotto-Select）公式ハブ" />
+  <title>チョイセレ（Chocotto-Select）</title>
   <style>
     :root {
       --bg: #0b0f14;
@@ -35,7 +35,8 @@
       padding: 10px 0 18px;
       border-bottom: 1px solid var(--line);
     }
-    .brand { font-weight: 700; letter-spacing: .02em; }
+    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .02em; }
+    .logo { width: 44px; height: 44px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid var(--line); }
     nav a { margin-left: 14px; color: var(--muted); }
     nav a:hover { color: var(--text); }
     .hero { padding: 32px 0 18px; }
@@ -94,7 +95,10 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="brand">チョイセレ（Choisere）</div>
+      <div class="brand">
+        <img class="logo" src="./assets/logo.jpg" alt="チョイセレ（Chocotto-Select） ロゴ" />
+        <span>チョイセレ（Chocotto-Select）</span>
+      </div>
       <nav>
         <a href="#brands">事業</a>
         <a href="#about">方針</a>
