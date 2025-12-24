@@ -20,6 +20,8 @@
       --line: rgba(230, 237, 243, 0.12);
       --accent: #7dd3fc;
       --accent2: #a78bfa;
+      --brandLogoSize: clamp(56px, 6.5vw, 88px); /* 44px の約2倍を上限に */
+      --subLogoH: clamp(26px, 3.2vw, 36px);     /* 18px の約2倍を上限に */
     }
     * { box-sizing: border-box; }
     body {
@@ -38,12 +40,19 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 10px 0 18px;
+      gap: 14px;
+      padding: 12px 0 18px;
       border-bottom: 1px solid var(--line);
     }
-    .brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .02em; }
-    .logo { width: 44px; height: 44px; object-fit: contain; border-radius: 10px; background: rgba(255,255,255,.06); border: 1px solid var(--line); }
+    .brand { display: inline-flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: .02em; }
+    .logo {
+      width: var(--brandLogoSize);
+      height: var(--brandLogoSize);
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(230, 237, 243, 0.14);
+    }
     nav a { margin-left: 14px; color: var(--muted); }
     nav a:hover { color: var(--text); }
     .hero { padding: 32px 0 18px; }
@@ -64,12 +73,13 @@
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     }
     .card h2 { margin: 0 0 8px; font-size: 16px; }
-    .card h2.withIcon { display: flex; align-items: center; gap: 10px; }
+    .card h2.withIcon { display: flex; align-items: center; gap: 12px; }
     .card h2.withIcon img {
-      height: 18px;
+      height: var(--subLogoH);
       width: auto;
+      max-width: 180px;
       display: block;
-      border-radius: 6px;
+      border-radius: 10px;
       border: 1px solid rgba(230, 237, 243, 0.14);
       background: rgba(255,255,255,.06);
     }
@@ -178,7 +188,7 @@
             <span class="pill">通販</span>
           </div>
           <div class="actions">
-            <a class="cta" aria-disabled="true" href="#">販売ページ（準備中）</a>
+            <a class="cta secondary" href="https://fukayagoods.base.shop/" target="_blank" rel="noopener">BASE（準備中）</a>
           </div>
         </div>
         <div class="card">
