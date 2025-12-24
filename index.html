@@ -64,6 +64,15 @@
       background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
     }
     .card h2 { margin: 0 0 8px; font-size: 16px; }
+    .card h2.withIcon { display: flex; align-items: center; gap: 10px; }
+    .card h2.withIcon img {
+      height: 18px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+      border: 1px solid rgba(230, 237, 243, 0.14);
+      background: rgba(255,255,255,.06);
+    }
     .card p { margin: 0 0 10px; color: var(--muted); }
     .pill {
       display: inline-block;
@@ -147,11 +156,14 @@
       <h2>事業・ブランド</h2>
       <div class="grid">
         <div class="card">
-          <h2>cafe mellow</h2>
-          <p>現在は月に1回、ランチ営業中です。詳しくはInstagramをご覧ください。</p>
+          <h2 class="withIcon">
+            <img src="./assets/mellow.jpg" alt="mellow ロゴ" />
+            <span>cafe mellow（ランチ）</span>
+          </h2>
+          <p>現在は月に1回、ランチ営業中です。詳しくはInstagramで。</p>
           <div class="kpi">
-            <span class="pill">月1回</span>
             <span class="pill">ランチ</span>
+            <span class="pill">菓子販売</span>
           </div>
           <div class="actions">
             <a class="cta" href="https://www.instagram.com/cafe_mellow_0u0/" target="_blank" rel="noopener">Instagram</a>
