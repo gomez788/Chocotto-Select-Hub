@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="ライフスタイルラボ - 人生をより豊かにするアプリを開発・提供しています。婚活コンパス、4000 Weeksなど。" />
+  <meta name="theme-color" content="#0b0f14" />
+  <meta property="og:title" content="ライフスタイルラボ | チョイセレ（Chocotto-Select）" />
+  <meta property="og:description" content="人生をより豊かにするアプリを開発・提供しています。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./assets/logo.jpg" />
+  <link rel="icon" href="./assets/logo.jpg" />
+  <title>ライフスタイルラボ | チョイセレ（Chocotto-Select）</title>
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --card: #0f1620;
+      --text: #e6edf3;
+      --muted: #98a6b3;
+      --line: rgba(230, 237, 243, 0.12);
+      --accent: #7dd3fc;
+      --accent2: #a78bfa;
+      --accent3: #f472b6;
+      --brandLogoSize: clamp(56px, 6.5vw, 88px);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans JP", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(244,114,182,.15), transparent 60%),
+                  radial-gradient(900px 500px at 80% 20%, rgba(167,139,250,.14), transparent 55%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 980px; margin: 0 auto; padding: 28px 18px 64px; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 0 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 14px; font-weight: 700; letter-spacing: .02em; }
+    .logo {
+      width: var(--brandLogoSize);
+      height: var(--brandLogoSize);
+      object-fit: contain;
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(230, 237, 243, 0.14);
+    }
+    nav a { margin-left: 14px; color: var(--muted); }
+    nav a:hover { color: var(--text); }
+    .hero { padding: 32px 0 18px; }
+    .hero h1 { margin: 0 0 10px; font-size: 34px; line-height: 1.2; }
+    .hero p { margin: 0; color: var(--muted); max-width: 70ch; }
+    .hero .tagline {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(244,114,182,.2), rgba(167,139,250,.2));
+      border: 1px solid rgba(244,114,182,.3);
+      font-size: 13px;
+      color: var(--accent3);
+    }
+    .apps-section { margin-top: 34px; }
+    .apps-section h2 { margin: 0 0 18px; font-size: 20px; }
+    .app-card {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.01));
+      margin-bottom: 20px;
+    }
+    .app-card .app-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+    .app-card .app-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(244,114,182,.3), rgba(167,139,250,.3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      flex-shrink: 0;
+    }
+    .app-card .app-info h3 {
+      margin: 0 0 4px;
+      font-size: 22px;
+    }
+    .app-card .app-info .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 8px;
+    }
+    .app-card .app-info .category {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: rgba(125,211,252,.15);
+      color: var(--accent);
+      font-size: 12px;
+    }
+    .app-card .description {
+      color: var(--muted);
+      margin: 0 0 16px;
+      line-height: 1.8;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .feature {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,.02);
+    }
+    .feature .icon { font-size: 20px; margin-bottom: 6px; }
+    .feature .title { font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .feature .desc { font-size: 12px; color: var(--muted); }
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cta {
+      display: inline-block;
+      padding: 10px 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(244,114,182,.35);
+      background: rgba(244,114,182,.08);
+      color: var(--text);
+      font-weight: 500;
+    }
+    .cta:hover { text-decoration: none; background: rgba(244,114,182,.14); }
+    .cta.secondary {
+      border: 1px solid rgba(167,139,250,.35);
+      background: rgba(167,139,250,.08);
+    }
+    .cta.secondary:hover { background: rgba(167,139,250,.12); }
+    .cta .icon { margin-right: 6px; }
+    .privacy-note {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 14px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: rgba(125,211,252,.06);
+      border: 1px solid rgba(125,211,252,.15);
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .privacy-note .icon { font-size: 18px; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 34px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .back-link:hover { color: var(--text); }
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 760px) {
+      .hero h1 { font-size: 26px; }
+      nav { display: none; }
+      .app-card .app-header { flex-direction: column; gap: 14px; }
+      .features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a href="./index.html" class="brand">
+        <img class="logo" src="./assets/logo.jpg" alt="チョイセレ（Chocotto-Select） ロゴ" />
+        <span>チョイセレ（Chocotto-Select）</span>
+      </a>
+      <nav>
+        <a href="./index.html">トップ</a>
+        <a href="./index.html#brands">事業一覧</a>
+        <a href="./index.html#contact">問い合わせ</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <span class="tagline">🧪 ライフスタイルラボ</span>
+      <h1>人生をより豊かにするアプリ</h1>
+      <p>
+        ライフスタイルラボでは、日々の生活や人生設計をサポートするiOSアプリを開発・提供しています。
+        すべてのアプリはプライバシーを最優先に設計されており、データは端末内にのみ保存されます。
+      </p>
+    </div>
+
+    <section class="apps-section">
+      <h2>📱 公開中のアプリ</h2>
+
+      <!-- 婚活コンパス -->
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">🧭</div>
+          <div class="app-info">
+            <h3>婚活コンパス</h3>
+            <p class="subtitle">婚活タイプ診断＆プロフィール作成</p>
+            <span class="category">ライフスタイル • 無料 • 17+</span>
+          </div>
+        </div>
+        <p class="description">
+          「どのマッチングアプリを使えばいいかわからない」「プロフィールの書き方がわからない」「婚活の進捗が見えなくて不安」——そんな悩みを解決する、婚活総合サポートアプリです。
+        </p>
+        <div class="features">
+          <div class="feature">
+            <div class="icon">📊</div>
+            <div class="title">婚活タイプ診断</div>
+            <div class="desc">10問の質問であなたにぴったりの婚活スタイルを診断</div>
+          </div>
+          <div class="feature">
+            <div class="icon">✍️</div>
+            <div class="title">プロフィール自動作成</div>
+            <div class="desc">アプリ別に最適化された自己紹介文を4パターン生成</div>
+          </div>
+          <div class="feature">
+            <div class="icon">📈</div>
+            <div class="title">婚活ダッシュボード</div>
+            <div class="desc">複数アプリの活動を一元管理・可視化</div>
+          </div>
+        </div>
+        <div class="pills">
+          <span class="pill">婚活</span>
+          <span class="pill">マッチングアプリ</span>
+          <span class="pill">診断</span>
+          <span class="pill">プロフィール</span>
+        </div>
+        <div class="actions">
+          <a class="cta" href="https://gomez788.github.io/app-ios-konkatsu-pub/" target="_blank" rel="noopener">
+            <span class="icon">🌐</span>サポートページ
+          </a>
+          <a class="cta secondary" href="https://gomez788.github.io/app-ios-konkatsu-pub/privacy-policy.html" target="_blank" rel="noopener">
+            プライバシーポリシー
+          </a>
+        </div>
+        <div class="privacy-note">
+          <span class="icon">🔒</span>
+          <span>データはすべて端末内に保存。外部サーバーへの送信なし・アカウント登録不要で安心。</span>
+        </div>
+      </div>
+
+      <!-- 4000 Weeks -->
+      <div class="app-card">
+        <div class="app-header">
+          <div class="app-icon">⏳</div>
+          <div class="app-info">
+            <h3>4000 Weeks</h3>
+            <p class="subtitle">人生の残り時間 - 残りの日数を可視化して今日を大切に</p>
+            <span class="category">ライフスタイル • 無料 • 4+</span>
+          </div>
+        </div>
+        <p class="description">
+          人生は約4000週間。「人生でお金を使い切って死ぬ」という考え方にインスパイアされ、限りある時間を意識して今を大切に生きることをサポートするアプリです。
+        </p>
+        <div class="features">
+          <div class="feature">
+            <div class="icon">⏳</div>
+            <div class="title">残り時間カウントダウン</div>
+            <div class="desc">残りの日数・週数・月数を進捗バーで可視化</div>
+          </div>
+          <div class="feature">
+            <div class="icon">👨‍👩‍👧</div>
+            <div class="title">大切な人との残り時間</div>
+            <div class="desc">月1回会うならあと何回かを計算</div>
+          </div>
+          <div class="feature">
+            <div class="icon">📅</div>
+            <div class="title">ライフカレンダー</div>
+            <div class="desc">人生を週のマスで一覧表示</div>
+          </div>
+          <div class="feature">
+            <div class="icon">✅</div>
+            <div class="title">やりたいことリスト</div>
+            <div class="desc">年代別にやりたいことを管理</div>
+          </div>
+        </div>
+        <div class="pills">
+          <span class="pill">人生</span>
+          <span class="pill">残り時間</span>
+          <span class="pill">カウントダウン</span>
+          <span class="pill">ライフカレンダー</span>
+          <span class="pill">バケットリスト</span>
+        </div>
+        <div class="actions">
+          <a class="cta" href="https://gomez788.github.io/app-ios-countdown-pub/" target="_blank" rel="noopener">
+            <span class="icon">🌐</span>サポートページ
+          </a>
+          <a class="cta secondary" href="https://gomez788.github.io/app-ios-countdown-pub/privacy-policy.html" target="_blank" rel="noopener">
+            プライバシーポリシー
+          </a>
+        </div>
+        <div class="privacy-note">
+          <span class="icon">🔒</span>
+          <span>すべてのデータはデバイス内にのみ保存。インターネット接続不要・広告なし・追跡なし。</span>
+        </div>
+      </div>
+    </section>
+
+    <a href="./index.html" class="back-link">← トップページに戻る</a>
+
+    <footer>
+      <div>© Ryoji Tanigome / チョイセレ（Chocotto-Select）</div>
+      <div>更新日: <span id="updated"></span></div>
+    </footer>
+  </div>
+
+  <script>
+    const el = document.getElementById("updated");
+    if (el) el.textContent = new Intl.DateTimeFormat("ja-JP", { dateStyle: "medium" }).format(new Date());
+  </script>
+</body>
+</html>
